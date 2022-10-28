@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Todo;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class TodoController extends Controller
 {
@@ -16,14 +17,17 @@ class TodoController extends Controller
     // Displays a list off all the items
     public function index()
     {
+        $user_id = auth()->user()->id;      //get id of current user
         // Getting query params from URL. Eg; api/todos?status=[status]
         $status = request('status');
         if ($status) {
             // If status val passed as query param
-            // return 'Status received';
-            return Todo::where('status', $status)->get();
+            return Todo::where('status', $status)
+                ->where('user_id', $user_id)
+                ->get();    // return items that match the status and the user_id
         }
-        return Todo::all();
+        return Todo::where('user_id', $user_id)->get(); // all items that match user_id
+        // return Todo::all();
     }
 
     /**
@@ -34,12 +38,15 @@ class TodoController extends Controller
      */
     public function store(Request $request)
     {
+        $user_id = auth()->user()->id;      //get id of current user
         // Create input validation
         $request->validate([
             'name' => 'required',
-            'user_id' => 'required',
+            // 'user_id' => 'required',
             'status' => ['required','in:NotStarted,OnGoing,Completed'],
         ]);
+        $request->request->add(['user_id' => $user_id]);    //Add user id to request
+        // $request = $request->merge(['user_id'=>$user_id]);
         return Todo::create($request->all());
     }
 
@@ -96,8 +103,4 @@ class TodoController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function trySomething($status)
-    {
-        return 'Trying something';    //using 'ilike' instead of 'like' makes it ignore case when searching
-    }
 }

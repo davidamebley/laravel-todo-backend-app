@@ -8,10 +8,10 @@ use Illuminate\Database\Eloquent\Model;
 class Todo extends Model
 {
     use HasFactory;
-    protected $fillable = [
+    protected $fillable = [ //These are values that are provided explicitly
         'name',
         'description',
-        'user_id',      #should be modified to allow auto fill from ref. table
+        'user_id',
         'status'
     ];
 }
