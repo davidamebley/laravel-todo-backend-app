@@ -14,6 +14,11 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+Route::get('/todos', function(){
+    return 'Todos';
+});
+
+
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
