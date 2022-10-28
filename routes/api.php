@@ -24,12 +24,13 @@ Route::post('/users', function(){
     ]);
 });
 
-//Call all routes for the below contoller implicitly
-//Public/Unprotected routes
-Route::resource('todos', TodoController::class);
 
-// Protected Routes/ Need user to be authenticated before api endpoints exposed
+//Public/Unprotected routes
+// Route::resource('todos', TodoController::class);
+
+// Protected Routes. You need a token to be able to do these
 Route::group(['middleware' => ['auth:sanctum']], function () {
+    Route::resource('todos', TodoController::class);    //Call all routes for the Controller implicitly
     Route::get('/todos/search/{description}', [TodoController::class, 'search']); //This rout is not implicitly contained in the controller, so we call it explicitly
 });
 
