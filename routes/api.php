@@ -21,8 +21,9 @@ Route::post('/signin', [UserController::class, 'signin']);
 
 // Protected Routes. You need a token to be able to do these
 Route::group(['middleware' => ['auth:sanctum']], function () {
-    Route::resource('todos', TodoController::class);    //Call all routes for the Controller implicitly
+    Route::resource('/todos', TodoController::class);    //Call all routes for the Controller implicitly
     Route::get('/todos/search/{description}', [TodoController::class, 'search']); //This rout is not implicitly contained in the controller, so we call it explicitly
+    // Route::get('/todos/?status=[status]', [TodoController::class, 'trySomething']);
     Route::post('/logout', [UserController::class, 'logout']);
 });
 

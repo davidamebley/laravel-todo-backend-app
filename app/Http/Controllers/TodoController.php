@@ -16,6 +16,13 @@ class TodoController extends Controller
     // Displays a list off all the items
     public function index()
     {
+        // Getting query params from URL. Eg; api/todos?status=[status]
+        $status = request('status');
+        if ($status) {
+            // If status val passed as query param
+            // return 'Status received';
+            return Todo::where('status', $status)->get();
+        }
         return Todo::all();
     }
 
@@ -81,5 +88,16 @@ class TodoController extends Controller
     public function search($description)
     {
         return Todo::where('description', 'ilike', '%'.$description.'%')->get();    //using 'ilike' instead of 'like' makes it ignore case when searching
+    }
+
+    /**
+     * Search for a description specified.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function trySomething($status)
+    {
+        return 'Trying something';    //using 'ilike' instead of 'like' makes it ignore case when searching
     }
 }
