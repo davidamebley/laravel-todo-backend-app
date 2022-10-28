@@ -28,6 +28,7 @@ Route::post('/users', function(){
 
 //Public/Unprotected routes
 Route::post('/signup', [UserController::class, 'signup']);
+Route::post('/signin', [UserController::class, 'signin']);
 // Route::resource('todos', TodoController::class);
 
 // Protected Routes. You need a token to be able to do these
