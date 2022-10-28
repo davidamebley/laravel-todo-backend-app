@@ -34,6 +34,7 @@ Route::post('/signup', [UserController::class, 'signup']);
 Route::group(['middleware' => ['auth:sanctum']], function () {
     Route::resource('todos', TodoController::class);    //Call all routes for the Controller implicitly
     Route::get('/todos/search/{description}', [TodoController::class, 'search']); //This rout is not implicitly contained in the controller, so we call it explicitly
+    Route::post('/logout', [UserController::class, 'logout']);
 });
 
 // Route::get('/todos', [TodoController::class, 'index']);  //Calling
