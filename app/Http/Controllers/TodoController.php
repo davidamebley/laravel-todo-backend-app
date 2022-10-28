@@ -71,4 +71,15 @@ class TodoController extends Controller
     {
         return Todo::destroy($id);
     }
+
+    /**
+     * Search for a description specified.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function search($description)
+    {
+        return Todo::where('description', 'ilike', '%'.$description.'%')->get();    //using 'ilike' instead of 'like' makes it ignore case when searching
+    }
 }
