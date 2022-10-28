@@ -21,7 +21,7 @@ return new class extends Migration
                 ->onUpdate('cascade')
                 ->onDelete('cascade');
             $table->timestamps();
-            $table->enum('status', ['NotStarted', 'OnGoing', 'Completed']);
+            $table->enum('status', ['NotStarted', 'OnGoing', 'Completed'])->default('NotStarted');
         });
     }
 

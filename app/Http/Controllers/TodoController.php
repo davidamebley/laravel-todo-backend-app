@@ -31,7 +31,7 @@ class TodoController extends Controller
         $request->validate([
             'name' => 'required',
             'user_id' => 'required',
-            'status' => 'required'
+            'status' => ['required','in:NotStarted,OnGoing,Completed'],
         ]);
         return Todo::create($request->all());
     }

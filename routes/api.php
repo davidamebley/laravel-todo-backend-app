@@ -14,18 +14,6 @@ use App\Http\Controllers\UserController;
 |
 */
 
-Route::get('/users', function(){
-    return User::all();
-});
-
-Route::post('/users', function(){
-    return User::create([
-        'email' => 'dave@mail.com',
-        'password' => 'Password123'
-    ]);
-});
-
-
 //Public/Unprotected routes
 Route::post('/signup', [UserController::class, 'signup']);
 Route::post('/signin', [UserController::class, 'signin']);
@@ -37,9 +25,6 @@ Route::group(['middleware' => ['auth:sanctum']], function () {
     Route::get('/todos/search/{description}', [TodoController::class, 'search']); //This rout is not implicitly contained in the controller, so we call it explicitly
     Route::post('/logout', [UserController::class, 'logout']);
 });
-
-// Route::get('/todos', [TodoController::class, 'index']);  //Calling
-// Route::post('/todos', [TodoController::class, 'store']);
 
 
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
