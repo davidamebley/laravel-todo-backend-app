@@ -1,8 +1,7 @@
 <?php
-
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
-
+use App\Http\Controllers\TodoController;
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -14,9 +13,22 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/todos', function(){
-    return 'Todos';
+Route::get('/users', function(){
+    return User::all();
 });
+
+Route::post('/users', function(){
+    return User::create([
+        'email' => 'dave@mail.com',
+        'password' => 'Password123'
+    ]);
+});
+
+//Call all routes for the below contoller implicitly
+Route::resource('todos', TodoController::class);
+
+// Route::get('/todos', [TodoController::class, 'index']);  //Calling
+// Route::post('/todos', [TodoController::class, 'store']);
 
 
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
