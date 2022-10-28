@@ -2,6 +2,7 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\TodoController;
+use App\Http\Controllers\UserController;
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -26,6 +27,7 @@ Route::post('/users', function(){
 
 
 //Public/Unprotected routes
+Route::post('/signup', [UserController::class, 'signup']);
 // Route::resource('todos', TodoController::class);
 
 // Protected Routes. You need a token to be able to do these
