@@ -65,4 +65,34 @@ class UserController extends Controller
             'message' => 'Logged out successfully'
         ];
     }
+
+    public function changePassword(Request $request){
+        // Let's first validate our input vals
+        $fields = $request->validate([
+            'current_password' => 'required|string',
+            'new_password' => 'required|string|confirmed'
+        ]);
+        
+        // Check if current and new passwords are the same
+        if (strcmp($request->get('current_password'), $request->get('new_password'))==0) {//strcmp compares both strs and returns 0 if match
+            return response([
+                'message' => 'Error. Your current password should not be the same as your new password'
+            ], 400);
+        }
+        
+        // Check if current password entered match with that of db for security purpose
+        if (!(Hash::check($request->get('current_password'), auth()->user()->password))) {
+            return response([
+                'message' => 'Error. The current password you entered does not match with your existing password. Please try again'
+            ], 401);
+        }
+        //Finally change the password
+        $user = auth()->user();
+        $user->password = bcrypt($request->get('new_password'));
+        $user->save();
+
+        return response([
+            'message' => 'Password changed successfully'
+        ], 201);
+    }
 }
