@@ -42,27 +42,31 @@ present, return all items
 - In the project root directory, run the following to install the Composer dependencies for this project:
 > <code>composer install</code>
 - Create a copy of the <code> .env </code> file by cloning the <code> .env.example </code> file that comes with this project and renaming it. 
-Use the following command: > <code> cp .env.example .env</code> 
-This clones and renames it to <code>.env</code>
-- Generate an app encryption key in the <code> .env </code> file (which is required by Laravel to encode various elements of the app). Run the following command in the Terminal: > <code> php artisan key:generate </code>
-**Note:** make sure Laravel is installed via Composer and the <code> .env</code> file is created before completing this step.
-- Create an empty postgresql database for this application. You may use the original name that was used for this project as > 'laravel_todo'
+Use the following command: 
+> <code> cp .env.example .env</code> 
+    - This clones and renames it to <code>.env</code>
+- Generate an app encryption key in the <code> .env </code> file (which is required by Laravel to encode various elements of the app). Run the following command in the Terminal:
+> <code> php artisan key:generate </code>
+    - **Note:** make sure Laravel is installed via Composer and the <code> .env</code> file is created before completing this step.
+- Create an empty postgresql database for this application. You may use the original name that was used for this project as 
+> 'laravel_todo'
 - Open the <code> .env </code> file and fill the various database connection fields with credentials from your created database. You may retrieve the necessary information using pgAdmin or the postgresql database tool you used. The fields you need to fill are:
 > DB_HOST, DB_PORT, DB_DATABASE, DB_USERNAME, & DB_PASSWORD.
-**Note:** Change the default <code> DB_CONNECTION </code> value in the <code> .env </code> file to *'pgsql'*
+    - **Note:** Change the default <code> DB_CONNECTION </code> value in the <code> .env </code> file to __*'pgsql'*__
 - Migrate the database after completing the credentials above by running the follwoing command:
 > <code> php artisan migrate </code>
-**Note:** You may use your database tool like pgAdmin to check if all your database tables were migrated successfully
+    - **Note:** You may use your database tool like pgAdmin to check if all your database tables were migrated successfully
 - After running your migration successfully, run the following command:
 > <code> php artisan serve </code>
-Running this command starts the application server and runs the app at > http://127.0.0.1:8000
+    - Running this command starts the application server and runs the app at:
+> http://127.0.0.1:8000
 - After starting the server successfully, you may proceed with working with the API endpoints together with the default URL provided above. Use [Postman](https://www.postman.com/downloads/) or any tool of your choice to test the endpoints and send http requests.
 
 ### Tech stack:
-**Language: ** PHP
-**Framework: ** Laravel
-**Database: ** PostgreSQL
-**Authentication: ** Laravel Sanctum
+- **Language: ** PHP
+- **Framework: ** Laravel
+- **Database: ** PostgreSQL
+- **Authentication: ** Laravel Sanctum
 
 ## License
 
