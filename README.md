@@ -63,7 +63,7 @@ Use the following command:
 - After starting the server successfully, you may proceed with working with the API endpoints together with the default URL provided above. Use [Postman](https://www.postman.com/downloads/) or any tool of your choice to test the endpoints and send http requests.
 
 ### Tech stack:
-- **Language: ** PHP
+- <bold>Language:</bold> PHP
 - **Framework: ** Laravel
 - **Database: ** PostgreSQL
 - **Authentication: ** Laravel Sanctum
