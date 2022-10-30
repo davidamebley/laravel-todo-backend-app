@@ -42,8 +42,8 @@ present, return all items
 - In the project root directory, run the following to install the Composer dependencies for this project:
 > <code>composer install</code>
 - Create a copy of the <code> .env </code> file by cloning the <code> .env.example </code> file that comes with this project and renaming it. 
-Use the following command:
-> <code> cp .env.example .env</code> This clones and renames it to <code>.env</code>
+Use the following command: > <code> cp .env.example .env</code> 
+This clones and renames it to <code>.env</code>
 - Generate an app encryption key in the <code> .env </code> file (which is required by Laravel to encode various elements of the app). Run the following command in the Terminal:
 > <code> php artisan key:generate </code>
 **Note:** make sure Laravel is installed via Composer and the <code> .env</code> file is created before completing this step.
