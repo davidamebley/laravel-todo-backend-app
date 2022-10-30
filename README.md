@@ -44,8 +44,7 @@ present, return all items
 - Create a copy of the <code> .env </code> file by cloning the <code> .env.example </code> file that comes with this project and renaming it. 
 Use the following command: > <code> cp .env.example .env</code> 
 This clones and renames it to <code>.env</code>
-- Generate an app encryption key in the <code> .env </code> file (which is required by Laravel to encode various elements of the app). Run the following command in the Terminal:
-> <code> php artisan key:generate </code>
+- Generate an app encryption key in the <code> .env </code> file (which is required by Laravel to encode various elements of the app). Run the following command in the Terminal: > <code> php artisan key:generate </code>
 **Note:** make sure Laravel is installed via Composer and the <code> .env</code> file is created before completing this step.
 - Create an empty postgresql database for this application. You may use the original name that was used for this project as > 'laravel_todo'
 - Open the <code> .env </code> file and fill the various database connection fields with credentials from your created database. You may retrieve the necessary information using pgAdmin or the postgresql database tool you used. The fields you need to fill are:
