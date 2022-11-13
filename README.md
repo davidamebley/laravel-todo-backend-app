@@ -32,6 +32,8 @@ present, return all items
 - PUT /api/v1/todos/:id : Update a todo item
 - DELETE /api/v1/todos/:id : Delete a todo item
 
+- [View API Documentation](https://documenter.getpostman.com/view/22630996/2s8YeuLqym)
+
 ## Installation
 - To run this backend, first make sure you have [PHP](https://www.php.net/manual/en/install.php), [Laravel](https://laravel.com/docs/9.x/installation), and [Composer](https://getcomposer.org/download/) installed. **Note:** You have to install Composer first, then you can install Laravel.
 - The database used was created with Postgresql. Please make sure you have it installed or follow the instructions [here](https://www.postgresql.org/download/) to install it. You can combine [pgAdmin](https://www.pgadmin.org/download/) with your postgresql database to perform interactions with your database easily.
