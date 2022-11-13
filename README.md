@@ -32,6 +32,8 @@ present, return all items
 - PUT /api/v1/todos/:id : Update a todo item
 - DELETE /api/v1/todos/:id : Delete a todo item
 
+## Documentation
+You can read the API endpoint documentation below:
 - [View API Documentation](https://documenter.getpostman.com/view/22630996/2s8YeuLqym)
 
 ## Installation
